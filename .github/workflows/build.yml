@@ -12,29 +12,29 @@ jobs:
   MathMLCan:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: MIR-MU/MathMLCan
     - name: Set up JDK 1.8
       uses: dmitry-shibanov/setup-java@v-dmshib/test-java-caching
       with:
         distribution: adopt
         java-version: 8
         cache: maven
-    - uses: actions/checkout@v2
-      with:
-        repository: MIR-MU/MathMLCan
     - run: mvn clean install
     - run: mvn integration-test
 
   MathMLUnificator:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: MIR-MU/MathMLUnificator
     - name: Set up JDK 1.8
       uses: dmitry-shibanov/setup-java@v-dmshib/test-java-caching
       with:
         distribution: adopt
         java-version: 8
         cache: maven
-    - uses: actions/checkout@v2
-      with:
-        repository: MIR-MU/MathMLUnificator
     - run: mvn clean install
     - run: mvn integration-test
